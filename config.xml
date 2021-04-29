@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+<widget id="com.memegeneratorteam.memegenerator" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Meme Generator</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Una aplicación que permite crear memes de forma sencilla y rápida.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="memegeneratorteamXD@gmail.com" href="https://www.google.es/">
+        Meme Generator Team
     </author>
+    <icon src="www/img/logoV2.png" density="mdpi" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

@@ -1,0 +1,50 @@
+html, body {
+    min-width: 300px;
+}
+
+.custom-width {
+    width: fit-content;
+}
+
+.custom-margin {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.custom-border-radius {
+    border-radius: 15px;
+}
+
+.overflow-show {
+    overflow: visible;
+}
+
+#login-container{
+    height: 100vh;
+    width: 50vh;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10vh;
+}
+
+.centrar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    width: 20vh;
+}
+
+#title{
+    width: 50vh;
+    align-items: center;
+    align-content: center;
+}
+
+#tittle-name{
+    width: 40vh;
+}
