@@ -47,6 +47,11 @@ html, body {
 
 .btn{
     width: 20vh;
+    background-color: rgb(68, 179, 35);
+}
+
+.btn:hover{
+    background-color: rgb(41, 109, 20);
 }
 
 #title{
