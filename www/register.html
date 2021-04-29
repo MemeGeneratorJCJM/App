@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Security-Policy"
-            content="default-src https://code.jquery.com https://fonts.gstatic.com 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+            content="default-src https://code.jquery.com https://fonts.gstatic.com https://memegenerator-jcg-jmm.herokuapp.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="row">  
-                        <a class="waves-effect waves-light btn centrar" id="btnRegister">Registrarse</a>
+                        <a class="waves-effect waves-light btn centrar disabled" id="btnRegister">Registrarse</a>
                     </div>
                     
                 </form>
@@ -56,9 +56,10 @@
         </div>
          
         <!--  Scripts-->
+        <script src="cordova.js"></script>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
-        <script src="js/register.js"></script>
+        <script type="module" src="js/register.js"></script>
     </body>
 
 </html>
