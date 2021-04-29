@@ -29,6 +29,16 @@ html, body {
     padding-top: 10vh;
 }
 
+#register-form-container{
+    height: 100vh;
+    width: 50vh;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10vh;
+}
+
 .centrar{
     display: block;
     margin-left: auto;
@@ -43,8 +53,9 @@ html, body {
     width: 50vh;
     align-items: center;
     align-content: center;
+    text-align: center;
 }
 
 #tittle-name{
-    width: 40vh;
+    width: 50vh;
 }

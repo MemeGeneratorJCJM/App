@@ -7,4 +7,10 @@
   
     }); // end of document ready
   })(jQuery); 
-  alert("Entrada al registro");
+  $("#btnRegister").click(function(){
+      //Launch AJAX query for register
+
+
+      //Open login
+    window.open("index.html","blank");
+  });
