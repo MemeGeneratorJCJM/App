@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Security-Policy"
+            content="default-src https://code.jquery.com https://fonts.gstatic.com https://memegenerator-jcg-jmm.herokuapp.com/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+        <title>Meme Generator</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+
+    <body> 
+        <!-- Tabs Declaration -->
+        <ul id="tabs" class="tabs center tabs-fixed-width">
+            <li class="tab col s3"><a class="active" href="#editorTab">Editor</a></li>
+            <li class="tab col s3"><a href="#searchTab">Buscador</a></li>
+            <li class="tab col s3"><a href="#dataTab">Datos</a></li>
+        </ul>
+        <!-- Editor Tab -->
+        <div id="editorTab" class="col s12 ">
+            <h1>Test Editor</h1>
+        </div>
+
+        <!-- Search Tab -->
+        <div id="searchTab" class="col s12  ">
+            <h1>Test Buscador</h1>
+        </div>
+
+        <!-- Data Tab -->
+        <div id="dataTab" class="col s12 ">
+            <h1>Test Datos</h1>
+        </div>
+          
+        <!--  Scripts-->
+        <script src="cordova.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script type="module" src="js/MemeGenerator.js"></script>
+    </body>
+
+</html>

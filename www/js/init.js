@@ -8,7 +8,7 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 $("#btnRegister").click(function(){
-  window.open("register.html","blank");
+  location.replace("register.html","blank");
 });
 
 function validateLogin() {
@@ -43,4 +43,7 @@ function validateLogin() {
   });
 }
 
-$("#btnLogin").click(validateLogin);
+// $("#btnLogin").click(validateLogin);
+$("#btnLogin").click(function(){
+  location.replace("MemeGenerator.html","blank");
+});

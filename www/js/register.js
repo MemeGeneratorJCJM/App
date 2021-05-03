@@ -24,7 +24,7 @@
       //Launch AJAX query for register
       //registerUser();
       //Open login
-    window.open("index.html","blank");
+    location.replace("index.html","blank");
   });
 
   function registerUser() {
