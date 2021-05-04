@@ -21,7 +21,7 @@ html, body {
 
 #login-container{
     height: 100vh;
-    width: 50vh;
+    width: 40vh;
     align-items: center;
     display: block;
     margin-left: auto;
@@ -31,13 +31,25 @@ html, body {
 
 #register-form-container{
     height: 100vh;
-    width: 50vh;
+    width: 40vh;
     align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-top: 10vh;
 }
+
+#searchContainer{
+    height: 100vh;
+    width: 40vh;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
 
 .centrar{
     display: block;
@@ -48,6 +60,29 @@ html, body {
 .btn{
     width: 20vh;
     background-color: rgb(68, 179, 35);
+}
+
+.s3{
+    background-color: rgb(68, 179, 35);
+    color: black;
+}
+.s3:hover{
+    background-color:  rgb(41, 109, 20);
+    color: black;
+}
+.s3:focus{
+    background-color:  rgb(41, 109, 20);
+    color: black;
+}
+a {
+    color: black;
+}
+a:hover {
+    color: black;
+}
+
+.black {
+    color: black;
 }
 
 .btn:hover{

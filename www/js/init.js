@@ -11,6 +11,8 @@ $("#btnRegister").click(function(){
   location.replace("register.html","blank");
 });
 
+
+
 function validateLogin() {
   var pass = $('#pwd').val();
   
