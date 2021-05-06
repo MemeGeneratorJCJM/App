@@ -70,7 +70,7 @@ html, body {
     background-color:  rgb(41, 109, 20);
     color: black;
 }
-.s3:focus{
+.s3:active{
     background-color:  rgb(41, 109, 20);
     color: black;
 }
@@ -98,4 +98,20 @@ a:hover {
 
 #tittle-name{
     width: 50vh;
+}
+
+#searchBarContainer{
+    height: 10vh;
+}
+
+#searchResultContainer{
+    width: 40vh;
+    height: 60vh;
+    border: black;
+    border-style: outset;
+    overflow-y: scroll;
+}
+
+#btnEditSelected{
+    height: 10vh;
 }
