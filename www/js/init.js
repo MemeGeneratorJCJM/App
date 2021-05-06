@@ -8,7 +8,8 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 $("#btnRegister").click(function(){
-  location.replace("register.html","blank");
+  // location.replace("register.html");
+  window.location="register.html";
 });
 
 
@@ -47,5 +48,6 @@ function validateLogin() {
 
 // $("#btnLogin").click(validateLogin);
 $("#btnLogin").click(function(){
-  location.replace("MemeGenerator.html","blank");
+  // location.replace("MemeGenerator.html","blank");
+  window.location="MemeGenerator.html";
 });
