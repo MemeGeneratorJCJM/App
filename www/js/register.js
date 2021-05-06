@@ -25,7 +25,7 @@
       //registerUser();
       //Open login
     // location.replace("index.html");
-    window.location="index.html";
+    window.location.href="index.html";
   });
 
   function registerUser() {
