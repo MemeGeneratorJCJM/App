@@ -1,18 +1,33 @@
-(function($){
-  $(function(){
+// (function($){
+//   $(function(){
 
-    // $('.sidenav').sidenav();
-   
+    
     
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-$("#btnRegister").click(function(){
+//   }); // end of document ready
+// })(jQuery); // end of jQuery name space
+document.addEventListener('deviceready', onDeviceReady, false);
+function onDeviceReady() {
   
   
-  window.location.replace("../register.html");
-  return false;
-});
+  // $("#btnLogin").click(validateLogin);
+  $('#btnRegister').click(function(){
+    // location.replace("MemeGenerator.html","blank");
+    
+    window.location.href="register.html";
+    
+    
+    });
+  $('#btnLogin').click(function(){
+  // location.replace("MemeGenerator.html","blank");
+  
+  window.location.href="MemeGenerator.html";
+  
+  
+  });
+ 
+}
+
 
 
 
@@ -48,11 +63,4 @@ function validateLogin() {
   });
 }
 
-// $("#btnLogin").click(validateLogin);
-$("#btnLogin").click(function(){
-  // location.replace("MemeGenerator.html","blank");
-  
-  window.location.href="../MemeGenerator.html";
-  return false;
-  
-});
+
