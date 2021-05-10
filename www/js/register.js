@@ -21,11 +21,7 @@
     }
   }
   $("#btnRegister").click(function(){
-      //Launch AJAX query for register
-      //registerUser();
-      //Open login
-    // location.replace("index.html");
-    window.location.href="index.html";
+      registerUser();
   });
 
   function registerUser() {
@@ -42,14 +38,15 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      url: "https://memegenerator-jcg-jmm.herokuapp.com/login/user",
+      //url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signup",
+      url: "http://localhost:3000/user/signup",
       contentType: "application/json",
       crossDomain: true,
       dataType: "json",
       data: JSON.stringify(query),
     }).done(function (response) {
-     
-  
+     alert("Usuario creado correctamente");
+  	 window.location.href="index.html";
   
     }).fail(function (response) {
       if (response.responseJSON != undefined) {
