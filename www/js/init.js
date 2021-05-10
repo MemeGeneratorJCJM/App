@@ -1,6 +1,6 @@
 // (function($){
 //   $(function(){
-
+var userData;
     
     
 
@@ -21,7 +21,8 @@ function onDeviceReady() {
   $('#btnLogin').click(function(){
   // location.replace("MemeGenerator.html","blank");
   
-  window.location.href="MemeGenerator.html";
+  //window.location.href="MemeGenerator.html";
+  validateLogin();
   
   
   });
@@ -44,14 +45,14 @@ function validateLogin() {
     headers: {
       'Content-Type': 'application/json'
     },
-    url: "https://memegenerator-jcg-jmm.herokuapp.com/login/user",
+    url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signin",
     contentType: "application/json",
     crossDomain: true,
     dataType: "json",
     data: JSON.stringify(query),
   }).done(function (response) {
-   
-
+    userData = response;
+    window.location.href="MemeGenerator.html";
 
   }).fail(function (response) {
     if (response.responseJSON != undefined) {
