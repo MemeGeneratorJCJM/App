@@ -36,7 +36,7 @@ function validateLogin() {
   var pass = $('#pwd').val();
   
   var query = {
-    "username": $('#email').val(),
+    "email": $('#email').val(),
     "password": pass
 
   }
@@ -45,7 +45,8 @@ function validateLogin() {
     headers: {
       'Content-Type': 'application/json'
     },
-    url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signin",
+    //https://memegenerator-jcg-jmm.herokuapp.com
+    url: "http://localhost:3000/user/signin",
     contentType: "application/json",
     crossDomain: true,
     dataType: "json",
