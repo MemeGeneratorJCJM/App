@@ -45,8 +45,8 @@ function validateLogin() {
     headers: {
       'Content-Type': 'application/json'
     },
-    //url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signin",
-    url: "http://localhost:3000/user/signin",
+    url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signin",
+    //url: "http://localhost:3000/user/signin",
     contentType: "application/json",
     crossDomain: true,
     dataType: "json",
