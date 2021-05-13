@@ -21,8 +21,8 @@ function onDeviceReady() {
   $('#btnLogin').click(function(){
   // location.replace("MemeGenerator.html","blank");
   
-  //window.location.href="MemeGenerator.html";
-  validateLogin();
+  window.location.href="MemeGenerator.html";
+  //validateLogin();
   
   
   });
@@ -53,6 +53,7 @@ function validateLogin() {
     data: JSON.stringify(query),
   }).done(function (response) {
     userData = response;
+    console.log(userData);
     window.location.href="MemeGenerator.html";
 
   }).fail(function (response) {
