@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var imgUrl;
 var app = {
     // Application Constructor
     initialize: function () {
@@ -58,8 +59,10 @@ var app = {
       };
   
       editButton = document.getElementById("editButton");
+
+      
   
-      editButton.addEventListener("click", function () {
+      function openMemeEditor() {
         /* The license should have an extension like this:
            for iOS: "xxx.ios", example: pesdk_license.ios
            for Android: "xxx.android", example: pesdk_license.android
@@ -111,10 +114,22 @@ var app = {
         PESDK.openEditor(
           pesdk_success,
           pesdk_failure,
-          PESDK.loadResource("www/assets/LA.jpg"),
+          PESDK.loadResource(imgUrl),
           config
         );
-      });
+      };
+      $("#btnSelectMeme").on("click", function() {
+        imgUrl = customFileChooser.open('image/png, image/jpeg, .jpg,',function (uri) {
+          // const file = new File(uri);
+          // Do something with that file
+          console.log(uri)
+          
+        }, function(err){
+          alert('No se ha podido subir el archivo');
+        })
+        console.log(imgUrl);
+        openMemeEditor();
+    });
     },
   
     // Update DOM on a Received Event
@@ -128,7 +143,10 @@ var app = {
   
     //   console.log("Received Event: " + id);
     // },
+   
   };
   
   app.initialize();
+
+  
   
