@@ -38,7 +38,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      url: "https://memegenerator-jcg-jmm.herokuapp.com/user/signup",
+      url: "https://meme-generator-jcg-jmm.herokuapp.com/",
       //url: "http://localhost:3000/user/signup",
       contentType: "application/json",
       crossDomain: true,
