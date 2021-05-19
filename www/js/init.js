@@ -1,6 +1,6 @@
 // (function($){
 //   $(function(){
-var userData;
+let userData;
     
     
 
@@ -10,19 +10,18 @@ document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
   
   
-  // $("#btnLogin").click(validateLogin);
+ 
   $('#btnRegister').click(function(){
-    // location.replace("MemeGenerator.html","blank");
+    
     
     window.location.href="register.html";
     
     
     });
   $('#btnLogin').click(function(){
-  // location.replace("MemeGenerator.html","blank");
   
-  window.location.href="MemeGenerator.html";
-  //validateLogin();
+  //window.location.href="MemeGenerator.html";
+  validateLogin();
   
   
   });
@@ -45,7 +44,7 @@ function validateLogin() {
     headers: {
       'Content-Type': 'application/json'
     },
-    url: "https://meme-generator-jcg-jmm.herokuapp.com/",
+    url: "https://meme-generator-jcg-jmm.herokuapp.com/user/signin",
     //url: "http://localhost:3000/user/signin",
     contentType: "application/json",
     crossDomain: true,
@@ -54,13 +53,14 @@ function validateLogin() {
   }).done(function (response) {
     userData = response;
     console.log(userData);
+    localStorage.setItem("userData", JSON.stringify(userData));
     window.location.href="MemeGenerator.html";
 
   }).fail(function (response) {
     if (response.responseJSON != undefined) {
       alert(response.responseJSON.statusData);
     } else {
-      alert("Error de conexión");
+      alert("Usuario o contraseña incorrectos");
     }
     
   });

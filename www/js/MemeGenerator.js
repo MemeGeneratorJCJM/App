@@ -12,5 +12,7 @@
     $(".carousel")[0].style = "height: 100vh;";
     
   });
- 
+ let userData = JSON.parse(localStorage.getItem("userData"))[0];
+  
+
  
