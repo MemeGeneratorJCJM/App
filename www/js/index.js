@@ -114,7 +114,7 @@ var app = {
         PESDK.openEditor(
           pesdk_success,
           pesdk_failure,
-          PESDK.loadResource("www/img/logoV2.png"),
+          PESDK.loadResource("www/img/basememe.jpg"),
           config
         );
       };

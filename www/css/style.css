@@ -161,3 +161,9 @@ a:hover {
     margin-right: auto;
     
 }
+
+#btnSelectMeme{
+    height: 5vh;
+    width: 40vh;
+    margin-top: 5px;
+}
