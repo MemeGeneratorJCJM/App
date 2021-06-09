@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Security-Policy"
-            content="default-src https://code.jquery.com https://fonts.gstatic.com https://meme-generator-jcg-jmm.herokuapp.com/ https://memegenerator-jcg-jmm.herokuapp.com/ http://localhost:3000 https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js https://res.cloudinary.com/memegenerator/image/upload/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+            content="default-src https://code.jquery.com https://fonts.gstatic.com https://apis.google.com https://code.jquery.com/ https://ssl.gstatic.com https://meme-generator-jcg-jmm.herokuapp.com/ https://memegenerator-jcg-jmm.herokuapp.com/ http://localhost:3000 https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js https://res.cloudinary.com/memegenerator/image/upload/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,63 +23,76 @@
             <li class="tab col s3"><a class="black-text" href="#dataTab">Datos</a></li>
         </ul>
         <!-- Editor Tab -->
-        <div id="editorTab" class="col s12 ">
-            <div id="editorContainer" class="centrar memeImageContainer">
-               
-                   <a class="waves-effect waves-light btn centrar" id="btnSelectMeme" type="file">
-                    Seleccionar Imagen
-                   </a>
-
-                   
+        <div id="editorTab" class="col s12">
+            <div id="canvasContainer" class="custom-border custom-border-radius" style="height: 60vh; margin: 2em;">
+                <div id="canvas">
+                    <!-- CANVAS -->
+                </div>
+            </div>
+            <div id="editorContainer" style="position: static; height: auto;">
+                <div class="row">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnSelectMeme" type="file">
+                        Seleccionar Imagen
+                    </a>
+                </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadMeme" type="file">
+                        Descargar Meme
+                    </a>
+                </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">
+                        Subir Meme
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Search Tab -->
-        <div id="searchTab" class="col s12  ">
+        <div id="searchTab" class="col s12">
            <div id="searchContainer" class="centrar">
                 <div class="row">
-                    <div id="searchBarContainer" class="input-field col s12">
+                    <div id="searchBarContainer" class="input-field col s12 custom-margin-top-2em">
                         <input id="searchbarInput" type="text" placeholder="Ej. Doggo, TrollFace, Shrek">
                         <label for="searchbarInput">Busqueda</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="searchResultContainer" class="centrar">
-                        <ul class="collapsible" id="searchMemeList">
-        
+                    <div id="searchResultContainer">
+                        <ul id="searchMemeList" class="collapsible custom-border custom-border-radius custom-scroll-y" style="height: 60vh; max-height: 60vh; margin: 1em;">
+                            <li></li>
                         </ul>
                     </div>
-                </div>
-                <div class="row">
-                    <a class="waves-effect waves-light btn centrar" id="btnEditSelected" type="file">
-                        Buscar Meme
-                    </a>
+                    <div id="editorContainer" style="position: static; height: auto;">
+                        <div class="row">
+                            <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">
+                                Buscar Meme
+                            </a>
+                        </div>
+                    </div>
                 </div>
            </div>
         </div>
 
         <!-- Data Tab -->
-        <div id="dataTab" class="col s12 ">
+        <div id="dataTab" class="col s12">
             <div id="dataContainer" class="centrar">
                 <div class="row">
-                    <div id="userDataContainer" class="input-field col s12">
-                        <label>
-                            Memes Creados por el usuario:
-                        </label>
-                        <label id="lblUsername">Username</label>
+                    <div id="userDataContainer" class="custom-margin-left-1em">
+                        <p>
+                            Memes creados por el usuario: <span id="lblUsername">Usuario</span>
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div id="dataResultContainer" class="centrar">
-                        <ul class="collapsible" id="userMemeList">
-        
+                        <ul id="userMemeList" class="collapsible custom-border custom-border-radius custom-scroll-y" style="height: 60vh; max-height: 60vh; margin: 1em;">
+                            <li></li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn centrar" id="btnDownloadSelected">
-                        Descargar Meme Selecionado
-                    </a>
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">Descargar meme</a>
                 </div>
            </div>
         </div>
@@ -88,9 +101,9 @@
         <script src="cordova.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/materialize.min.js"></script>
-        <script type="module" src="js/MemeGenerator.js"></script>
+        <script src="js/MemeGenerator.js"></script>
         <script src="js/base.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/index.js"></script>
     </body>
 
 </html>

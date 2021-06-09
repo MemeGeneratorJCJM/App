@@ -1,5 +1,6 @@
 html, body {
     min-width: 300px;
+    overflow-x: hidden;
 }
 
 .custom-width {
@@ -20,7 +21,6 @@ html, body {
 }
 
 #login-container{
-    height: 100vh;
     width: 40vh;
     align-items: center;
     display: block;
@@ -49,8 +49,6 @@ html, body {
     
 }
 
-
-
 .centrar{
     display: block;
     margin-left: auto;
@@ -66,27 +64,18 @@ html, body {
     background-color: rgb(68, 179, 35);
     color: black;
 }
-.s3:hover{
-    background-color:  rgb(41, 109, 20);
-    color: black;
-}
+
 .s3:active{
     background-color:  rgb(41, 109, 20);
     color: black;
 }
+
 a {
-    color: black;
-}
-a:hover {
     color: black;
 }
 
 .black {
     color: black;
-}
-
-.btn:hover{
-    background-color: rgb(41, 109, 20);
 }
 
 #title{
@@ -104,14 +93,6 @@ a:hover {
     height: 10vh;
 }
 
-#searchResultContainer{
-    width: 40vh;
-    height: 60vh;
-    border: black;
-    border-style: outset;
-    overflow-y: scroll;
-}
-
 #btnEditSelected{
     height: 5vh;
     width: 40vh;
@@ -126,20 +107,8 @@ a:hover {
     margin-right: auto;
 }
 
-#lblUsername{
-    margin-top: 2vh;
-}
-
 #userDataContainer{
     height: 10vh;
-}
-
-#dataResultContainer{
-    width: 40vh;
-    height: 60vh;
-    border: black;
-    border-style: outset;
-    overflow-y: scroll;
 }
 
 #btnDownloadSelected{
@@ -162,8 +131,287 @@ a:hover {
     
 }
 
-#btnSelectMeme{
-    height: 5vh;
-    width: 40vh;
-    margin-top: 5px;
+
+/* NO LIBRERIA */
+
+/* Font options: */
+.custom-wrap {
+  word-wrap: break-word;
+  white-space: initial;
+}
+
+.custom-font-size-13px {
+  font-size: 13px;
+}
+
+.custom-text-justify {
+  text-align: justify;
+  text-justify: auto;
+}
+
+/* Overflow options:*/
+.custom-scroll-y {
+  overflow-y: scroll;
+}
+
+.custom-scroll-x-hidden {
+  overflow-x: hidden;
+}
+
+.custom-overflow-hidden {
+  overflow: hidden;
+}
+
+.custom-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+/* Displays: */
+.custom-display-block {
+	display: block;
+}
+
+.custom-display-none {
+  display: none;
+}
+
+/* Margins: */
+.custom-margin-auto {
+  margin: auto;
+}
+
+.custom-margin-05em {
+  margin: 0.5em;
+}
+
+.custom-margin-1em {
+  margin: 1em;
+}
+
+.custom-margin-2em {
+  margin: 2em;
+}
+
+.custom-margin-top-1em {
+  margin-top: 1em;
+}
+
+.custom-margin-top-2em {
+  margin-top: 2em;
+}
+
+.custom-margin-bottom-1em {
+  margin-top: 1em;
+}
+
+.custom-margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.custom-margin-top-bottom-05em {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.custom-margin-top-bottom-1em {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.custom-margin-top-bottom-1-5em {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.custom-margin-top-bottom-2em {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.custom-margin-left-1em {
+  margin-left: 1em;
+}
+
+.custom-margin-right-left-1em {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.custom-margin-top-05em-negative {
+  margin-top: -0.5em !important;
+}
+
+.custom-margin-bottom-05em-negative {
+  margin-bottom: -0.5em !important;
+}
+
+/* Paddings: */
+.custom-padding-0 {
+  padding: 0 !important;
+}
+
+.custom-padding-1em {
+  padding: 1em !important;
+}
+
+.custom-padding-2em {
+  padding: 2em !important;
+}
+
+.custom-padding-top-1em {
+  padding-top: 1em !important;
+}
+
+.custom-padding-right-left-1em {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.custom-padding-top-bottom-1em {
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+
+.custom-padding-bottom-1em {
+  padding-bottom: 1em !important;
+}
+
+.custom-padding-left-1em {
+  padding-left: 1em;
+}
+
+.custom-padding-left-2em {
+  padding-left: 2em !important;
+}
+
+.custom-padding-right-1em {
+  padding-right: 1em;
+}
+
+/* Transforms: */
+.custom-transform-vertical-translate {
+  transform: translate(0%, -50%) !important;
+}
+
+/* Borders: */
+.custom-border-none {
+  border: none !important;
+}
+
+.custom-border {
+  border: 1px solid #ddd !important;
+  box-shadow: 0 2px 2px 0 rgba(58, 105, 206, 0.2), 0 3px 1px -2px rgba(58, 105, 206, 0.2), 0 1px 5px 0 rgba(58, 105, 206, 0.2) !important;
+}
+
+.custom-border-radius-bottom {
+  border-radius: 0px 0px 20px 20px;
+}
+
+/* Color gradients: */
+.green-gradient {
+  background: linear-gradient(149deg, rgba(106,255,61,1) 0%, rgba(68,179,35,1) 42%, rgba(38,126,12,1) 70%, rgba(38,126,12,1) 90%, rgba(110,255,66,1) 150%);
+}
+
+.red-gradient {
+  background: linear-gradient(45deg, rgba(150,15,5,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+.green-text-gradient {
+  background: linear-gradient(149deg, rgba(106,255,61,1) 0%, rgba(68,179,35,1) 42%, rgba(38,126,12,1) 70%, rgba(38,126,12,1) 90%, rgba(110,255,66,1) 150%);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Width: */
+.custom-width-100 {
+  width: 100%;
+}
+
+.custom-width-80 {
+  width: 80%;
+}
+
+.custom-width-75 {
+  width: 75%;
+}
+
+.custom-width-50 {
+  width: 50%;
+}
+
+.custom-width-75px {
+  width: 75px;
+}
+
+/* Height */
+.custom-height-100 {
+  height: 100%;
+}
+
+.custom-height-90 {
+  height: 90%;
+}
+
+.custom-height-75 {
+  height: 75%;
+}
+
+.custom-height-50 {
+  height: 50%;
+}
+
+.custom-height-25 {
+  height: 25%;
+}
+
+.custom-height-75px {
+  height: 75px;
+}
+
+.custom-max-height-100 {
+  max-height: 100%;
+}
+
+.custom-max-height-15vh {
+  max-height: 15vh;
+}
+
+.custom-height-35vh {
+  height: 35vh;
+}
+
+.custom-height-30vh {
+  height: 30vh;
+}
+
+/* Custom tags */
+
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label, input[type="password"]:not(.browser-default):focus.validate + label, input[type="text"]:not(.browser-default):focus:not([readonly]) + label {
+  color: #44b323;
+}
+
+input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #44b323 !important;
+  box-shadow: 0 1px 0 0 #44b323 !important;
+}
+
+/* Modificar el color de la label y el borde inferior de los inputs (Una vez son validados) */
+input.valid:not(.browser-default) {
+  border-bottom: 1px solid #44b323 !important;
+  box-shadow: 0 1px 0 0 #44b323 !important;
+}
+
+
+input:not(.browser-default):focus.valid ~ label{
+  color: #44b323;
+}
+
+.tabs .indicator {
+  background-color: #FFF !important;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(0, 184, 31, 0.2);
+  outline: none;
 }
