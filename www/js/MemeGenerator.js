@@ -24,8 +24,12 @@ let btnUpload;
 let btnDownload;
 
 function onDeviceReady() {
-	userData = JSON.parse(localStorage.getItem("userData"))[0];
-	$('#lblUsername')[0].innerHTML = userData.username ? "Usuario" : userData.username;
+	try {
+		userData = JSON.parse(localStorage.getItem("userData"))[0];
+		$('#lblUsername')[0].innerHTML = userData.username ? userData.username : "Usuario";
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
 
 	getUserMemes();
 
@@ -46,23 +50,27 @@ function onDeviceReady() {
 }
 
 function getUserMemes() {
-	$.ajax({
-		method: "GET",
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		url: 'https://meme-generator-jcg-jmm.herokuapp.com/user/findMemesByUsername/' + userData.username,
-		contentType: "application/json",
-		crossDomain: true,
-		dataType: "json",
-
-	}).done(function (response) {
-		userMemes = response;
-		console.log(userMemes);
-		setUserMemes();
-	}).fail(function (response) {
-		alert("Error con los datos del usuario" + userData.username)
-	});
+	try {
+		$.ajax({
+			method: "GET",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: 'https://meme-generator-jcg-jmm.herokuapp.com/user/findMemesByUsername/' + userData.username ? userData.username : "user",
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
+	
+		}).done(function (response) {
+			userMemes = response;
+			console.log(userMemes);
+			setUserMemes();
+		}).fail(function (response) {
+			alert("Error con los datos del usuario" + userData.username)
+		});
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
 }
 
 function setUserMemes() {
