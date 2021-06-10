@@ -118,44 +118,6 @@ var app = {
           config
         );
       };
-      $("#btnSelectMeme").on("click", function() {
-        // (async () => {
-        //   const file = await chooser.getFile();
-        //   console.log(file);
-        //     // Request the URL for this entry
-        //   fileURL = window.resolveLocalFileSystemURL();
-        //   console.log(fileURL);
-        // })();
-        customFileChooser.open('image/png, image/jpeg, .jpg,',async function (uri) {
-          console.log(uri)
-          //const file = new File(uri);
-          // Do something with that file
-          // Request the URL for this entry
-
-          var uripath = uri;
-
-          window.FilePath.resolveNativePath(uripath, successNative, failNative);
-                  
-          function failNative(e) {
-              console.error('Houston, we have a big problem :(');
-          }
-
-          async function successNative(path) {
-            finalPath = await path;
-            console.log(finalPath);
-            openMemeEditor();
-          } 
-
-          // fileURL = file.toURL();
-          // console.log(fileURL);
-          
-          
-        }, function(err){
-          alert('No se ha podido subir el archivo');
-        })
-        
-         
-    });
     },
   
     // Update DOM on a Received Event

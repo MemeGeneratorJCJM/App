@@ -1,7 +1,7 @@
 // (function($){
 //   $(function(){
 let userData;
-let skipLogin = true;
+let skipLogin = false;
 
     
 

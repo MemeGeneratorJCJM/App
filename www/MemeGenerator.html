@@ -24,10 +24,23 @@
         </ul>
         <!-- Editor Tab -->
         <div id="editorTab" class="col s12">
-            <div id="canvasContainer" class="custom-border custom-border-radius" style="height: 60vh; margin: 2em;">
-                <div id="canvas">
-                    <!-- CANVAS -->
-                </div>
+            <div id="canvasContainer" class="custom-border custom-border-radius-bottom" style="height: 60vh; margin: 2em;">
+                <canvas id="canvas" style="height: 70%; width: max-content;">
+                </canvas>
+                <form class="custom-padding-right-left-1em">
+                    <div class="row" style="margin-bottom: 0 !important;">
+                        <div class="input-field col s12" style="margin-top: 0 !important; margin-bottom: 0 !important;">
+                            <input id="topLine" placeholder="Texto arriba" maxlength="22" disabled>
+                            <label class="active" for="topLine"></label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: -10px !important; margin-bottom: 0 !important;">
+                        <div class="input-field col s12" style="margin-top: 0 !important; margin-bottom: 0 !important;">
+                            <input id="bottomLine" placeholder="Texto abajo" maxlength="22" disabled>
+                            <label class="active" for="bottomLine"></label>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div id="editorContainer" style="position: static; height: auto;">
                 <div class="row">
@@ -36,12 +49,12 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadMeme" type="file">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80 disabled" id="btnDownloadMeme" type="file">
                         Descargar Meme
                     </a>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80 disabled" id="btnUploadMeme" type="file">
                         Subir Meme
                     </a>
                 </div>
@@ -65,7 +78,7 @@
                     </div>
                     <div id="editorContainer" style="position: static; height: auto;">
                         <div class="row">
-                            <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">
+                            <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadSelectedMeme" type="file">
                                 Buscar Meme
                             </a>
                         </div>
@@ -92,18 +105,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnUploadMeme" type="file">Descargar meme</a>
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadSelectedUserMeme" type="file">Descargar meme</a>
                 </div>
            </div>
         </div>
+
+        <!-- Hidden image to retrive from canvas -->
+        <img id="imgSelected" style="visibility: hidden; display: none;" src="">
           
         <!--  Scripts-->
         <script src="cordova.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/materialize.min.js"></script>
+        <script src="js/FileSaver.js" type="module"></script>
         <script src="js/MemeGenerator.js"></script>
         <script src="js/base.js"></script>
         <script src="js/index.js"></script>
+
+        <script src="js/canvas.js"></script>
     </body>
 
 </html>
