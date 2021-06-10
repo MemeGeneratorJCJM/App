@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Security-Policy"
-            content="default-src https://code.jquery.com https://fonts.gstatic.com https://apis.google.com https://code.jquery.com/ https://ssl.gstatic.com https://meme-generator-jcg-jmm.herokuapp.com/ https://memegenerator-jcg-jmm.herokuapp.com/ http://localhost:3000 https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js https://res.cloudinary.com/memegenerator/image/upload/ 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        content="default-src https://fonts.gstatic.com/ https://apis.google.com/ https://code.jquery.com/ https://ssl.gstatic.com/ https://meme-generator-jcg-jmm.herokuapp.com/  https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js https://res.cloudinary.com/memegenerator/image/upload/ 'self' data: gap: https://ssl.gstatic.com/ 'unsafe-eval'; style-src https://fonts.googleapis.com/ 'self' 'unsafe-inline'; media-src *; img-src http://res.cloudinary.com/ 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80 disabled" id="btnUploadMeme" type="file">
+                    <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80 modal-trigger disabled" id="btnUploadMeme" type="file" href="#modal1">
                         Subir Meme
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                     <div id="editorContainer" style="position: static; height: auto;">
                         <div class="row">
                             <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadSelectedMeme" type="file">
-                                Buscar Meme
+                                Descargar Meme
                             </a>
                         </div>
                     </div>
@@ -108,6 +108,23 @@
                     <a class="waves-effect waves-light btn centrar custom-border-radius green custom-width-80" id="btnDownloadSelectedUserMeme" type="file">Descargar meme</a>
                 </div>
            </div>
+        </div>
+
+        
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h5>Guardar Meme en la Base de Datos</h5>
+                <div class="row" style="margin-bottom: 0 !important;">
+                    <div class="input-field col s12" style="margin-top: 0 !important; margin-bottom: 0 !important;">
+                        <input id="saveName" placeholder="Nombre del Meme" maxlength="22">
+                        <label class="active" for="topLine"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="btnAgree">Agree</a>
+            </div>
         </div>
 
         <!-- Hidden image to retrive from canvas -->

@@ -1,10 +1,12 @@
 (function ($) {
 	$(function () {
-
+		var modalUpload = document.querySelectorAll('#modal1');
+		M.Modal.init(modalUpload, {opacity: 0.5, dismissible: false});
 		// $('.sidenav').sidenav();
 		$(document).ready(function () {
 			$('.tabs').tabs({ "swipeable": true });
 			$(".carousel")[0].style = "height: 100vh;";
+			
 		});
 
 	}); // end of document ready
@@ -27,16 +29,20 @@ let btnDownload;
 let btnDownloadSelectedMeme;
 let btnDownloadSelectedUserMeme;
 let memeSearchInput;
+let memeUrl;
+let memeName;
+let route;
+let memeID;
 
 function onDeviceReady() {
 	try {
 		userData = JSON.parse(localStorage.getItem("userData"))[0];
-		$('#lblUsername')[0].innerHTML = userData.username ? userData.username : "Usuario";
+		$('#lblUsername')[0].innerHTML = userData.username;
 	} catch (error) {
 		console.log("Internal log: Error - userData");
 	}
 
-	//getUserMemes();
+	getUserMemes();
 
 	$("#btnEditSelected").on("click", getMemesByName);
 	
@@ -100,12 +106,24 @@ function onDeviceReady() {
 	});
 
 	btnUpload = $("#btnUploadMeme").on("click", function() {
-		generatedImage = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+		
+		
+		
+		
 		console.log(generatedImage);
 	});
 
+	$("#btnAgree").on("click", function() {
+		route = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+		memeName = $("#saveName")[0].value;
+		postImage(memeName,route);
+	});
 
-	memeSearchInput = $("#btnUploadMeme").on("input", function() {});
+
+	memeSearchInput = $("#searchbarInput").on("input", function() {
+
+		getMemesByName();
+	});
 
 	btnDownloadSelectedMeme = $("#btnDownloadSelectedMeme").on("click", function(){
 
@@ -113,14 +131,116 @@ function onDeviceReady() {
 
 }
 
-function getUserMemes() {
+function postImage(memeName,route){
+	var params ={
+		title: memeName,
+		image: route
+	};
+	try {
+		$.ajax({
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: "https://meme-generator-jcg-jmm.herokuapp.com/image-upload/",
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
+			data: JSON.stringify(params),
+		}).done(function (response) {
+			memeUrl = response.result.url;
+			console.log(memeUrl);
+			generateMeme();
+		}).fail(function (response) {
+			alert("Error con los datos del usuario" + userData.username)
+		});
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
+}
+
+function generateMeme(){
+	var params ={
+		name: memeName,
+		route: memeUrl
+	};
+	try {
+		$.ajax({
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: "https://meme-generator-jcg-jmm.herokuapp.com/meme/create",
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
+			data: JSON.stringify(params),
+		}).done(function (response) {
+			setMemeToUser();
+		}).fail(function (response) {
+			alert("Error con los datos del usuario" + userData.username)
+		});
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
+}
+
+function setMemeToUser(){
 	try {
 		$.ajax({
 			method: "GET",
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url: 'https://meme-generator-jcg-jmm.herokuapp.com/user/findMemesByUsername/' + userData.username ? userData.username : "user",
+			url: "https://meme-generator-jcg-jmm.herokuapp.com/meme/findMemeIdByMemeName/" + memeName,
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
+			
+		}).done(function (response) {
+			memeID = response[0].idmeme;
+			userData.idMeme = memeID;
+			updateUser();
+		}).fail(function (response) {
+			alert("Error con los datos del usuario" + userData.username)
+		});
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
+}
+
+function updateUser(){
+	
+	try {
+		$.ajax({
+			method: "PUT",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: "https://meme-generator-jcg-jmm.herokuapp.com/user/update/" + userData.username,
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
+			data: JSON.stringify(userData),
+		}).done(function (response) {
+			getUserMemes();
+		}).fail(function (response) {
+			alert("Error con los datos del usuario" + userData.username)
+		});
+	} catch (error) {
+		console.log("Internal log: Error - userData");
+	}
+}
+
+function getUserMemes() {
+	try {
+		$.ajax({
+			method: "GET",
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': '*/*'
+			},
+			url: 'https://meme-generator-jcg-jmm.herokuapp.com/meme/findMemesByUsername/' + userData.username,
 			contentType: "application/json",
 			crossDomain: true,
 			dataType: "json",
@@ -130,7 +250,7 @@ function getUserMemes() {
 			console.log(userMemes);
 			setUserMemes();
 		}).fail(function (response) {
-			alert("Error con los datos del usuario" + userData.username)
+			alert("Error con los datos del usuario " + userData.username)
 		});
 	} catch (error) {
 		console.log("Internal log: Error - userData");
@@ -139,37 +259,45 @@ function getUserMemes() {
 
 function setUserMemes() {
 	for (let index = 0; index < userMemes.length; index++) {
-		$("#userMemeList").append("<li>" + userMemes[index].rute + "</li>");
+		$("#userMemeList").append("<li><img src='"+ userMemes[index].rute + "' class='responsive-img'></li>");
 	}
 
 }
 
 function getMemesByName() {
 	var memeName = $("#searchbarInput").val();
-	$.ajax({
-		method: "GET",
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		url: 'https://meme-generator-jcg-jmm.herokuapp.com/user/findMemesByMemeName/' + memeName,
-		contentType: "application/json",
-		crossDomain: true,
-		dataType: "json",
+	try {
+		$.ajax({
+			method: "GET",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: 'https://meme-generator-jcg-jmm.herokuapp.com/meme/findMemesByMemeName/' + memeName,
+			contentType: "application/json",
+			crossDomain: true,
+			dataType: "json",
 
-	}).done(function (response) {
-		searchMemes = response;
-		console.log(searchMemes);
-		setSearchMemes();
-	}).fail(function (response) {
-		alert("Error durante la busqueda")
-	});
+		}).done(function (response) {
+			searchMemes = response;
+			console.log(searchMemes);
+			setSearchMemes();
+		}).fail(function (response) {
+			
+		});
+	} catch (error) {
+		
+	}
 }
 
 function setSearchMemes() {
 	$("#searchMemeList").empty();
 	for (let index = 0; index < searchMemes.length; index++) {
-		$("#searchMemeList").append("<li>" + searchMemes[index].rute + "</li>");
+		$("#searchMemeList").append("<li name='searchMemes' id=meme"+index+"><img src='"+ searchMemes[index].rute + "' class='responsive-img'></li>");
 	}
+	$("[name=searchMemes]").on("click",function(){
+		console.log($(this).closest("li").attr("id"))
+		$(this).css("filter","invert(75%)")
+	});
 }
 
 function applyDisabledClass(id) {
