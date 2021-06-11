@@ -23,10 +23,10 @@ Añadimos las plataformas donde se ejecutará la App:
 cordova platform add browser/android
 ```
 
-Añdimos el plugin del editor PESDK:
+Añdimos el plugin que gestiona la cámara:
 ```
-cordova plugin add cordova-plugin-photoeditorsdk
-```
+cordova plugin add cordova-plugin-camera
+````
 
 Añdimos el plugin del gestor de ficheros de cordova:
 ```
@@ -34,13 +34,18 @@ cordova plugin add cordova-plugin-file
 ```
 Añdimos el plugin del selector de ficheros:
 ```
-cordova plugin add https://github.com/EnriqueGL/cordova-custom-filechooser.git
+cordova plugin add cordova-plugin-custom-filechooser
 ```
 Añdimos el plugin que gestiona permisos en el sistema android:
 ```
 cordova plugin add cordova-plugin-android-permissions
 ```
-Ejecutar la App (Recomendamos ejecutarla en Android para su pleno funcionamiento):
+
+Añdimos el plugin que gestiona el dispositivo en el que estamos
+```
+cordova plugin add cordova-plugin-device
+```
+Ejecutar la App:
 ```
 cordova run browser //Ejecución en el navegador web
 cordova run android //Ejecución en el emulador android
