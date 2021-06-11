@@ -22,6 +22,9 @@ let searchMemes;
 
 let generatedImage = "";
 
+let selectedFoundMeme;
+let selectedUserMeme;
+
 // Variables Tab Editor:
 let btnSelect;
 let btnUpload;
@@ -126,7 +129,43 @@ function onDeviceReady() {
 	});
 
 	btnDownloadSelectedMeme = $("#btnDownloadSelectedMeme").on("click", function(){
+		download();
+		function toDataURL(url) {
+			return fetch(url).then((response) => {
+					return response.blob();
+				}).then(blob => {
+					return URL.createObjectURL(blob);
+				});
+		};
+		
+		async function download() {
+			const a = document.createElement("a");
+			a.href = await toDataURL(selectedFoundMeme);
+			a.download = "myImage.png";
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		};
+	});
 
+	btnDownloadSelectedUserMeme = $("#btnDownloadSelectedUserMeme").on("click", function(){
+		download();
+		function toDataURL(url) {
+			return fetch(url).then((response) => {
+					return response.blob();
+				}).then(blob => {
+					return URL.createObjectURL(blob);
+				});
+		};
+		
+		async function download() {
+			const a = document.createElement("a");
+			a.href = await toDataURL(selectedUserMeme);
+			a.download = "myImage.png";
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		};
 	});
 
 }
@@ -259,8 +298,13 @@ function getUserMemes() {
 
 function setUserMemes() {
 	for (let index = 0; index < userMemes.length; index++) {
-		$("#userMemeList").append("<li><img src='"+ userMemes[index].rute + "' class='responsive-img'></li>");
+		$("#userMemeList").append("<li><img name='userMemes' id=userMeme"+index+" src='"+ userMemes[index].rute + "' class='responsive-img'></li>");
 	}
+	$("[name=userMemes]").on("click",function(){
+		console.log($(this).closest("li").attr("id"))
+		selectedUserMeme = $(this).closest("li").children("img").attr("src");
+		console.log(selectedUserMeme);
+	});
 
 }
 
@@ -295,8 +339,9 @@ function setSearchMemes() {
 		$("#searchMemeList").append("<li name='searchMemes' id=meme"+index+"><img src='"+ searchMemes[index].rute + "' class='responsive-img'></li>");
 	}
 	$("[name=searchMemes]").on("click",function(){
-		console.log($(this).closest("li").attr("id"))
-		$(this).css("filter","invert(75%)")
+		console.log($(this).closest("li").attr("id"));
+		selectedFoundMeme = $(this).closest("li").children("img").attr("src");
+		console.log(selectedFoundMeme);
 	});
 }
 
